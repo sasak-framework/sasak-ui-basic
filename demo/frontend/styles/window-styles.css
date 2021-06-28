@@ -1,0 +1,92 @@
+/* The Modal (background) */
+.layout-modal {
+    display: flex;
+    position: absolute; /* Stay in place */
+    z-index: 10; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    min-height: 100%;
+    overflow: hidden; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Fallback color */
+    margin: 0;
+}
+
+.modal-hidden {
+    display: none !important;
+}
+
+.window {
+    display: flex;
+    flex-flow: column;
+    min-width: 200px;
+    max-width: calc(100% - 20px);
+    max-height: calc(100% - 20px);
+    background-color: white;
+    border: 2px solid rgb(0,135,81);
+    border-radius: 5px;
+    box-shadow: 3px 3px 4px rgba(0,0,0,0.2);
+    margin: auto;
+}
+
+.window-title {
+    margin-left: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: calc(100% - 25px);
+}
+
+.window-title-container {
+    width: calc(100% + 1px);
+    height: 35px;
+    display: flex;
+    background-color: rgb(0,135,81);
+    color: white;
+    margin-left: -1px;
+    margin-top: -1px;
+}
+
+.window-close-button {
+    margin-right: 2px;
+    margin-top: 3px;
+    width: 25px;
+    height: calc(100% - 6px);
+    display: flex;
+    cursor: default;
+    border-radius: 3px;
+}
+
+.window-close-button-icon {
+    font-size: larger;
+    margin: auto;
+}
+
+.window-close-button-text {
+    margin: auto;
+}
+
+.window-close-button:hover {
+    color: rgb(0,135,81);
+    background: white;
+    text-shadow: none;
+}
+
+.window-content {
+    width: calc(100% - 20px);
+    min-height: 100px;
+    max-height: 100%;
+    max-width: calc(100% - 20px);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    /*border: 1px solid lightgray;*/
+}
+
+.window-footer {
+    height: 40px;
+    display: flex;
+    padding: 10px;
+    width: calc(100% - 30px);
+    margin: 0px 5px 5px 5px;
+}

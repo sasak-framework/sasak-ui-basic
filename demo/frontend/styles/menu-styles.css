@@ -1,0 +1,124 @@
+.main-menu {
+    background-color: rgba(0,0,0,0.2);
+    border: 1px solid rgb(45, 68, 67);
+    box-shadow: 3px 3px 4px rgba(0,0,0,0.2);
+    margin: auto;
+    width: 1200px;
+    max-width: calc(100% - 20px);
+    max-height: calc(100% - 20px);
+    border-radius: 3px;
+}
+
+.top-menu {
+    margin-top: 3px;
+    height: 30px;
+    width: 100%;
+    display: flex;
+    cursor: pointer;
+}
+
+.top-menu-spacer {
+    height: 100%;
+    flex-grow: 1;
+}
+
+.top-menu-item {
+    height: 100%;
+    color: lightyellow;
+    display: flex;
+    font-size: smaller;
+    cursor: default;
+    margin-right: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.top-menu-icon {
+    height: 16px;
+    width: 16px;
+    margin-left: 5px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.top-menu-title {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 5px;
+}
+
+.top-menu-item:hover {
+    background-color: lightyellow;
+    color: #033532;
+    border-radius: 5px;
+}
+
+.menu-item-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+    max-height: calc(100vh - 180px);
+    overflow: auto;
+}
+
+.menu-item {
+    width: 300px;
+    max-width: calc(100% - 20px);
+    height: 60px;
+    color: lightyellow;
+    background-color: rgb(45, 68, 67);
+    font-weight: bolder;
+    border-radius: 3px;
+    /*border: 2px solid lightgreen!*rgb(211,211,211)*!;*/
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    cursor: pointer;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.menu-item:hover {
+    border: 3px solid lightgreen;
+    color: lightgreen;
+    font-weight: bolder;
+}
+
+.menu-item:hover .menu-item-icon-container {
+    /*border-right: 2px solid lightgreen;*/
+}
+
+.menu-item-icon-container {
+    width: 67px;
+    height: 100%;
+    /*border-right: 1px solid lightgray;*/
+    display: flex;
+}
+
+.menu-item-icon {
+    height: 30px;
+    width: 30px;
+    margin: auto;
+}
+
+.menu-item-title {
+    margin: auto;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.menu-item-badge {
+    margin-top: 3px;
+    margin-right: 5px;
+    background-color: darkolivegreen;
+    height: 20px;
+    font-size: small;
+    text-align: center;
+    min-width: 20px;
+    padding-left: 3px;
+    padding-right: 8px;
+}

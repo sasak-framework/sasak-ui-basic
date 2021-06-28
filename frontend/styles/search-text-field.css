@@ -1,0 +1,8 @@
+:host(.glow-text-field) [part="input-field"] {
+    background-color: rgba(0, 0, 0, 0.9) !important;
+    border: 2px solid rgba(10, 115, 121, 0.5);
+    border-radius: 5px !important;
+    color: rgb(14, 242, 255);
+    box-shadow: 0 0 4px cyan;
+    height: 40px;
+}

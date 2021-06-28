@@ -1,0 +1,5 @@
+:host(.module-search-text-field) [part="input-field"] {
+    color: lightyellow !important;
+    border-radius: 2px !important;
+    height: 30px !important;
+}
