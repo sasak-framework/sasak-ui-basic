@@ -43,7 +43,7 @@ import java.util.List;
 @Route("")
 @PageTitle("COOK BIZ - Sasak UI Basic Demo")
 @Theme(Lumo.class)
-@Push(transport = Transport.WEBSOCKET_XHR)
+//@Push(transport = Transport.WEBSOCKET_XHR)
 @PWA(name = "COOK BIZ - Sasak UI Basic Demo", shortName = "COOK BIZ")
 @BodySize(height = "100vh")
 @PreserveOnRefresh

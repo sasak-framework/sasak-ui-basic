@@ -170,7 +170,7 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.sasakframework</groupId>
+            <groupId>com.sasak-ui</groupId>
             <artifactId>sasak-ui-basic</artifactId>
             <version>1.0.1</version>
         </dependency>
