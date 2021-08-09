@@ -409,7 +409,7 @@ public class MasterRecipeEditor extends Window {
         btnClose.getElement().setAttribute("theme", "secondary");
         btnClose.addClickListener(clickEvent -> {
 
-            getElement().removeFromParent();
+            super.close();
 
         });
 
@@ -438,11 +438,9 @@ public class MasterRecipeEditor extends Window {
                     onDelete.accept(masterRecipe);
                     Dialogs.notifyInfo("Data deleted.");
                 }
-                getElement().removeFromParent();
-                return;
+                super.close();
             } catch (Exception ex) {
                 Dialogs.notifyError(moduleName, id, "Failed to delete Recipe: \n" + ex);
-                return;
             }
         }, () -> {});
 
@@ -483,7 +481,7 @@ public class MasterRecipeEditor extends Window {
 
         Dialogs.notifyDataSaved();
         if (onUpdate != null) onUpdate.accept(masterRecipe);
-        getElement().removeFromParent();
+        super.close();
         return true;
     }
 

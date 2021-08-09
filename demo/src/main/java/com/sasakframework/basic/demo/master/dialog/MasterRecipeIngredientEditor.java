@@ -181,7 +181,7 @@ public class MasterRecipeIngredientEditor extends Window {
         btnClose.getElement().setAttribute("theme", "secondary");
         btnClose.addClickListener(clickEvent -> {
 
-            getElement().removeFromParent();
+            super.close();
 
         });
 
@@ -208,11 +208,9 @@ public class MasterRecipeIngredientEditor extends Window {
                 if (onDelete != null) {
                     onDelete.accept(masterRecipeIngredient);
                 }
-                getElement().removeFromParent();
-                return;
+                super.close();
             } catch (Exception ex) {
                 Dialogs.notifyError(moduleName, id, "Failed to delete Ingredient: \n" + ex);
-                return;
             }
         }, () -> {});
 
@@ -232,7 +230,7 @@ public class MasterRecipeIngredientEditor extends Window {
         masterRecipeIngredient.setVolume(volume.getValue());
 
         if (onUpdate != null) onUpdate.accept(masterRecipeIngredient);
-        getElement().removeFromParent();
+        super.close();
 
         return true;
     }

@@ -16,7 +16,7 @@
  * Code written by Husein Musawa @ 2021
  */
 
-package com.sasakframework.basic.demo.sale.browser.dialog;
+package com.sasakframework.basic.demo.sale.dialog;
 
 import com.sasakframework.basic.demo.master.MasterRecipe;
 import com.sasakframework.basic.demo.sale.SaleItem;
@@ -44,7 +44,7 @@ public class SaleItemEditor extends Window {
     private boolean editMode;
     private long id;
     private MasterRecipe masterRecipe = new MasterRecipe();
-    private SaleItem saleItem = new SaleItem();
+    private SaleItem saleItem;
 
     private Consumer<SaleItem> onUpdate;
     private Consumer<SaleItem> onDelete;
@@ -156,9 +156,7 @@ public class SaleItemEditor extends Window {
         price.setReadOnly(true);
 
         recipeName.setWidthFull();
-        qty.addKeyPressListener(Key.ENTER, listener -> {
-            btnSave.focus();
-        });
+        qty.addKeyPressListener(Key.ENTER, listener -> btnSave.focus());
 
         formLayout.addFormItem(btnSelectProduct, "" );
         formLayout.addFormItem(recipeName, "Product Name");
@@ -180,11 +178,7 @@ public class SaleItemEditor extends Window {
         btnSave.addClickListener(clickEvent -> doSave());
 
         btnClose.getElement().setAttribute("theme", "secondary");
-        btnClose.addClickListener(clickEvent -> {
-
-            getElement().removeFromParent();
-
-        });
+        btnClose.addClickListener(clickEvent -> super.close());
 
         HorizontalLayout leftButtons = new HorizontalLayout(btnDelete);
         leftButtons.setSpacing(true);
@@ -209,11 +203,9 @@ public class SaleItemEditor extends Window {
                 if (onDelete != null) {
                     onDelete.accept(saleItem);
                 }
-                getElement().removeFromParent();
-                return;
+                super.close();
             } catch (Exception ex) {
                 Dialogs.notifyError(moduleName, id, "Failed to delete Ingredient: \n" + ex);
-                return;
             }
         }, () -> {});
 
@@ -233,7 +225,7 @@ public class SaleItemEditor extends Window {
         saleItem.setQty(qty.getIntValue());
 
         if (onUpdate != null) onUpdate.accept(saleItem);
-        getElement().removeFromParent();
+        super.close();
 
         return true;
     }

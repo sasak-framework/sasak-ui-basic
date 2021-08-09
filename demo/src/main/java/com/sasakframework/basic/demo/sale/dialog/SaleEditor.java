@@ -16,7 +16,7 @@
  * Code written by Husein Musawa @ 2021
  */
 
-package com.sasakframework.basic.demo.sale.browser.dialog;
+package com.sasakframework.basic.demo.sale.dialog;
 
 import com.sasakframework.basic.demo.CookBiz;
 import com.sasakframework.basic.demo.sale.Sale;
@@ -40,7 +40,6 @@ import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.FlexLayout;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
-import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.textfield.NumberField;
 import com.vaadin.flow.data.renderer.TemplateRenderer;
 import com.vaadin.flow.function.ValueProvider;
@@ -139,7 +138,7 @@ public class SaleEditor extends Window {
 
     private void initItemLayout() {
 
-        itemLayout.setSizeFull();
+        itemLayout.setWidthFull();
 
         btnAddItem.setIcon(VaadinIcon.PLUS.create());
         btnAddItem.addClickListener(l -> {
@@ -181,7 +180,7 @@ public class SaleEditor extends Window {
         grdItems.addColumn(TemplateRenderer.<SaleItem>of(
                 "<Label style=\"padding-left: 5px;\"><small>[[item.name]]</small></Label>")
                 .withProperty("name", SaleItem::getRecipeName))
-                .setHeader(new BoldLabel("Role", "5px"))
+                .setHeader(new BoldLabel("Item", "5px"))
                 .setResizable(true)
                 .setWidth("250px");
         grdItems.addColumn(TemplateRenderer.<SaleItem>of(
@@ -189,13 +188,13 @@ public class SaleEditor extends Window {
                 .withProperty("qty", SaleItem::getQty))
                 .setHeader(new BoldLabel("Qty", "5px"))
                 .setResizable(true)
-                .setWidth("120px");
+                .setWidth("100px");
         grdItems.addColumn(TemplateRenderer.<SaleItem>of(
                 "<Label><small>[[item.qty]]</small></Label>")
                 .withProperty("unit", SaleItem::getUnit))
                 .setHeader(new BoldLabel("Unit", "5px"))
                 .setResizable(true)
-                .setWidth("120px");
+                .setWidth("100px");
         grdItems.addColumn(TemplateRenderer.<SaleItem>of(
                 "<Label><small>[[item.price]]</small></Label>")
                 .withProperty("price", i -> "$" + i.getPrice()))
@@ -214,22 +213,19 @@ public class SaleEditor extends Window {
             btnDelete.setIcon(VaadinIcon.TRASH.create());
             btnDelete.addThemeVariants(ButtonVariant.LUMO_ICON);
             btnDelete.addThemeVariants(ButtonVariant.LUMO_SMALL);
-            btnDelete.addClickListener(l -> {
-                Dialogs.ask("Item", "Are you sure want to delete this item?",
-                        () -> {
-                            Iterator<SaleItem> itr = sale.getItemList().iterator();
-                            while (itr.hasNext()) {
-                                if (itr.next().getId() == saleItem.getId()) {
-                                    itr.remove();
-                                    grdItems.setItems(sale.getItemList());
-                                    totalPrice.setValue(sale.getTotal());
-                                    Dialogs.notifyInfo("Data deleted.");
-                                    return;
-                                }
+            btnDelete.addClickListener(l -> Dialogs.ask("Item", "Are you sure want to delete this item?",
+                    () -> {
+                        Iterator<SaleItem> itr = sale.getItemList().iterator();
+                        while (itr.hasNext()) {
+                            if (itr.next().getId() == saleItem.getId()) {
+                                itr.remove();
+                                grdItems.setItems(sale.getItemList());
+                                totalPrice.setValue(sale.getTotal());
+                                Dialogs.notifyInfo("Data deleted.");
+                                return;
                             }
-                        });
-
-            });
+                        }
+                    }));
 
             return btnDelete;
         });
@@ -276,7 +272,7 @@ public class SaleEditor extends Window {
         btnClose.getElement().setAttribute("theme", "secondary");
         btnClose.addClickListener(clickEvent -> {
 
-            getElement().removeFromParent();
+            super.close();
 
         });
 
@@ -305,11 +301,9 @@ public class SaleEditor extends Window {
                     onDelete.accept(sale);
                     Dialogs.notifyInfo("Data deleted.");
                 }
-                getElement().removeFromParent();
-                return;
+                super.close();
             } catch (Exception ex) {
                 Dialogs.notifyError(moduleName, id, "Failed to delete Sale: \n" + ex);
-                return;
             }
         }, () -> {});
 
@@ -356,7 +350,7 @@ public class SaleEditor extends Window {
 
         Dialogs.notifyDataSaved();
         if (onUpdate != null) onUpdate.accept(sale);
-        getElement().removeFromParent();
+        super.close();
         return true;
     }
 

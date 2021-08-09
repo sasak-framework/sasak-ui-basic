@@ -126,7 +126,7 @@ public class MasterUtensilEditor extends Window {
         btnClose.getElement().setAttribute("theme", "secondary");
         btnClose.addClickListener(clickEvent -> {
 
-            getElement().removeFromParent();
+            super.close();
 
         });
 
@@ -155,11 +155,9 @@ public class MasterUtensilEditor extends Window {
                     onDelete.accept(masterUtensil);
                     Dialogs.notifyInfo("Data deleted.");
                 }
-                getElement().removeFromParent();
-                return;
+                super.close();
             } catch (Exception ex) {
                 Dialogs.notifyError(moduleName, id, "Failed to delete Utensil: \n" + ex);
-                return;
             }
         }, () -> {});
 
@@ -200,7 +198,7 @@ public class MasterUtensilEditor extends Window {
 
         Dialogs.notifyDataSaved();
         if (onUpdate != null) onUpdate.accept(masterUtensil);
-        getElement().removeFromParent();
+        super.close();
         return true;
     }
 

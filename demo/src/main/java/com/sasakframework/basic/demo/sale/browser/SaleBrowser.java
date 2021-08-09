@@ -22,7 +22,7 @@ import com.sasakframework.Vars;
 import com.sasakframework.basic.demo.master.MasterRecipe;
 import com.sasakframework.basic.demo.sale.Sale;
 import com.sasakframework.basic.demo.sale.SaleItem;
-import com.sasakframework.basic.demo.sale.browser.dialog.SaleEditor;
+import com.sasakframework.basic.demo.sale.dialog.SaleEditor;
 import com.sasakframework.basic.demo.session.Session;
 import com.sasakframework.component.basic.*;
 import com.sasakframework.utilities.Dialogs;

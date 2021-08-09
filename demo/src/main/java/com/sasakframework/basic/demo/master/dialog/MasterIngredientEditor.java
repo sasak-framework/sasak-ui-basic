@@ -134,7 +134,7 @@ public class MasterIngredientEditor extends Window {
         btnClose.getElement().setAttribute("theme", "secondary");
         btnClose.addClickListener(clickEvent -> {
 
-            getElement().removeFromParent();
+            super.close();
 
         });
 
@@ -163,7 +163,7 @@ public class MasterIngredientEditor extends Window {
                     onDelete.accept(masterIngredient);
                     Dialogs.notifyInfo("Data deleted.");
                 }
-                getElement().removeFromParent();
+                super.close();
                 return;
             } catch (Exception ex) {
                 Dialogs.notifyError(moduleName, id, "Failed to delete Ingredient: \n" + ex);
@@ -214,7 +214,7 @@ public class MasterIngredientEditor extends Window {
 
         Dialogs.notifyDataSaved();
         if (onUpdate != null) onUpdate.accept(masterIngredient);
-        getElement().removeFromParent();
+        super.close();
         return true;
     }
 

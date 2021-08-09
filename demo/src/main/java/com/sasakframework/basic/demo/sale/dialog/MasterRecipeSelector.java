@@ -16,7 +16,7 @@
  * Code written by Husein Musawa @ 2021
  */
 
-package com.sasakframework.basic.demo.sale.browser.dialog;
+package com.sasakframework.basic.demo.sale.dialog;
 
 import com.sasakframework.basic.demo.master.MasterRecipe;
 import com.sasakframework.basic.demo.session.Session;
