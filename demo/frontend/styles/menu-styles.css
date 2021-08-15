@@ -62,6 +62,10 @@
 }
 
 .menu-item {
+    margin: auto;
+}
+
+.menu-item-inner-container {
     width: 300px;
     max-width: calc(100% - 20px);
     height: 60px;
@@ -71,17 +75,14 @@
     border-radius: 3px;
     /*border: 2px solid lightgreen!*rgb(211,211,211)*!;*/
     display: flex;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: auto;
-    margin-left: auto;
+    margin: 10px 5px;
     cursor: pointer;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
 }
 
-.menu-item:hover {
+.menu-item-inner-container:hover {
     border: 3px solid lightgreen;
     color: lightgreen;
     font-weight: bolder;

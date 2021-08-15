@@ -102,7 +102,7 @@ public class MasterUtensilBrowser extends ModuleBrowser {
         grid.addColumn(TemplateRenderer.<MasterUtensil>of(
                 "<Label style=\"padding-left: 5px;\"><small>[[item.name]]</small></Label>")
                 .withProperty("name", MasterUtensil::getName))
-                .setHeader(new BoldLabel("Role", "5px"))
+                .setHeader(new BoldLabel("Utensil Name", "5px"))
                 .setResizable(true)
                 .setWidth("60%");
 

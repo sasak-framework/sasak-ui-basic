@@ -65,8 +65,8 @@ public class MasterRecipeEditor extends Window {
 
     private Tabs tabs = new Tabs();
     private Div contentContainer = new Div();
-    private Div ingredientLayout = new Div();
-    private Div utensilLayout = new Div();
+    private FlexLayout ingredientLayout = new FlexLayout();
+    private FlexLayout utensilLayout = new FlexLayout();
     private Button btnAddIngredient = new Button("Add");
     private Button btnAddUtensil = new Button("Add");
     private Grid<MasterRecipeIngredient> grdIngredients = new Grid<>();
@@ -128,7 +128,7 @@ public class MasterRecipeEditor extends Window {
         initTabs();
         initButtons();
 
-        vlMain.setWidth("810px");
+        vlMain.setWidth("860px");
 
         name.focus();
 
@@ -152,7 +152,7 @@ public class MasterRecipeEditor extends Window {
         tabs.setWidthFull();
         vlMain.add(tabs);
 
-        contentContainer.setWidth("calc(100% - 10px)");
+        contentContainer.setWidth("100%");
         contentContainer.setMinHeight("500px");
         contentContainer.getStyle().set("overflow", "auto");
         contentContainer.add(ingredientLayout);
@@ -175,9 +175,11 @@ public class MasterRecipeEditor extends Window {
 
     private void initIngredientLayout() {
 
+        ingredientLayout.setFlexDirection(FlexLayout.FlexDirection.COLUMN);
         ingredientLayout.setSizeFull();
 
         btnAddIngredient.setIcon(VaadinIcon.PLUS.create());
+        btnAddIngredient.addThemeVariants(ButtonVariant.LUMO_SUCCESS);
         btnAddIngredient.addClickListener(l -> {
             MasterRecipeIngredientEditor editor = new MasterRecipeIngredientEditor(false, null,
                     newIngredient -> {
@@ -203,6 +205,7 @@ public class MasterRecipeEditor extends Window {
 
         FlexLayout toolbar = new FlexLayout();
         toolbar.getStyle().set("padding", "5px");
+        toolbar.getStyle().set("margin-top", "15px");
         toolbar.setWidth("calc(100%- 10px)");
         toolbar.add(btnAddIngredient);
 
@@ -217,7 +220,7 @@ public class MasterRecipeEditor extends Window {
         grdIngredients.addColumn(TemplateRenderer.<MasterRecipeIngredient>of(
                 "<Label style=\"padding-left: 5px;\"><small>[[item.name]]</small></Label>")
                 .withProperty("name", MasterRecipeIngredient::getName))
-                .setHeader(new BoldLabel("Role", "5px"))
+                .setHeader(new BoldLabel("Ingredient Name", "5px"))
                 .setResizable(true)
                 .setWidth("250px");
         grdIngredients.addColumn(TemplateRenderer.<MasterRecipeIngredient>of(
@@ -298,15 +301,17 @@ public class MasterRecipeEditor extends Window {
         ingredientLayout.add(lblStatusIngredients);
 
         Tab tab = new Tab(ingredientLayout);
-        tab.setLabel("Ingredient");
+        tab.setLabel("Ingredients");
         tabs.add(tab);
     }
 
     private void initUtensilLayout() {
 
+        utensilLayout.setFlexDirection(FlexLayout.FlexDirection.COLUMN);
         utensilLayout.setSizeFull();
 
         btnAddUtensil.setIcon(VaadinIcon.PLUS.create());
+        btnAddUtensil.addThemeVariants(ButtonVariant.LUMO_SUCCESS);
         btnAddUtensil.addClickListener(l -> {
             MasterUtensilSelector selector = new MasterUtensilSelector(u -> {
                 if (masterRecipe.getUtensilList() == null) {
@@ -340,6 +345,7 @@ public class MasterRecipeEditor extends Window {
         
         FlexLayout toolbar = new FlexLayout();
         toolbar.getStyle().set("padding", "5px");
+        toolbar.getStyle().set("margin-top", "15px");
         toolbar.setWidth("calc(100%- 10px)");
         toolbar.add(btnAddUtensil);
 
@@ -354,7 +360,7 @@ public class MasterRecipeEditor extends Window {
         grdUtensils.addColumn(TemplateRenderer.<MasterRecipeUtensil>of(
                 "<Label style=\"padding-left: 5px;\"><small>[[item.name]]</small></Label>")
                 .withProperty("name", MasterRecipeUtensil::getName))
-                .setHeader(new BoldLabel("Role", "5px"))
+                .setHeader(new BoldLabel("Recipe Name", "5px"))
                 .setResizable(true)
                 .setWidth("60%");
         
@@ -365,7 +371,7 @@ public class MasterRecipeEditor extends Window {
             btnDelete.addThemeVariants(ButtonVariant.LUMO_ICON);
             btnDelete.addThemeVariants(ButtonVariant.LUMO_SMALL);
             btnDelete.addClickListener(l -> {
-                Dialogs.ask("Ingredient", "Are you sure want to delete this item?",
+                Dialogs.ask("Utensil", "Are you sure want to delete this item?",
                         () -> {
                             Iterator<MasterRecipeUtensil> itr = masterRecipe.getUtensilList().iterator();
                             while (itr.hasNext()) {
@@ -392,7 +398,7 @@ public class MasterRecipeEditor extends Window {
         utensilLayout.add(lblStatusUtensils);
 
         Tab tab = new Tab(utensilLayout);
-        tab.setLabel("Utensil");
+        tab.setLabel("Utensils");
         tabs.add(tab);
 
     }

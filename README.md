@@ -1,4 +1,4 @@
-# Sasak UI - Basic Version
+# Sasak UI - Basic Components
 
 Additional components aims to provide straight forward pro-grade UI for vaadin framework.
 

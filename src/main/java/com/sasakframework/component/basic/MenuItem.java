@@ -22,10 +22,12 @@ import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
+import com.vaadin.flow.component.orderedlayout.FlexLayout;
 
 public class MenuItem extends Div {
 
     private Menu menu;
+
     public MenuItem(Menu menu) {
 
         this.menu = menu;
@@ -35,6 +37,8 @@ public class MenuItem extends Div {
 
     private void initLayout() {
 
+        FlexLayout container = new FlexLayout();
+        container.addClassName("menu-item-inner-container");
 
         Div iconContainer = new Div();
         iconContainer.addClassName("menu-item-icon-container");
@@ -55,13 +59,15 @@ public class MenuItem extends Div {
 
         Span label = new Span(menu.getMenuName());
         label.addClassName("menu-item-title");
+
         addClassName("menu-item");
-        add(iconContainer, label);
+        container.add(iconContainer, label);
+        add(container);
 
         if (menu.getBadge() != null) {
             Span badgeLabel = new Span(menu.getBadge());
             badgeLabel.addClassName("menu-item-badge");
-            add(badgeLabel);
+            container.add(badgeLabel);
         }
     }
 

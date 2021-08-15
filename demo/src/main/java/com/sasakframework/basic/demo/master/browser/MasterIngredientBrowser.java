@@ -103,7 +103,7 @@ public class MasterIngredientBrowser extends ModuleBrowser {
         grid.addColumn(TemplateRenderer.<MasterIngredient>of(
                 "<Label style=\"padding-left: 5px;\"><small>[[item.name]]</small></Label>")
                 .withProperty("name", MasterIngredient::getName))
-                .setHeader(new BoldLabel("Role", "5px"))
+                .setHeader(new BoldLabel("Ingredient Name", "5px"))
                 .setResizable(true)
                 .setWidth("60%");
         grid.addColumn(TemplateRenderer.<MasterIngredient>of(

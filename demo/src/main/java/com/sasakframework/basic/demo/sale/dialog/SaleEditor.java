@@ -141,6 +141,7 @@ public class SaleEditor extends Window {
         itemLayout.setWidthFull();
 
         btnAddItem.setIcon(VaadinIcon.PLUS.create());
+        btnAddItem.addThemeVariants(ButtonVariant.LUMO_SUCCESS);
         btnAddItem.addClickListener(l -> {
             SaleItemEditor editor = new SaleItemEditor(false, null,
                     newItem -> {
