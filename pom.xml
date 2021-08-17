@@ -23,8 +23,8 @@
     <version>1.0.2</version>
     <packaging>jar</packaging>
 
-    <name>sasak-ui-basic</name>
-    <description>Sasak UI Basic Version</description>
+    <name>Sasak UI Basic Components</name>
+    <description>Sasak UI Basic Components</description>
     <url>https://github.com/sasak-framework/sasak-ui-basic</url>
 
     <organization>

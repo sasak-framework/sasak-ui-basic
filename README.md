@@ -13,6 +13,6 @@ This component is now available on maven central repository.
 <dependency>
   <groupId>com.sasak-ui</groupId>
   <artifactId>sasak-ui-basic</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
 </dependency>
 ```
