@@ -16,3 +16,5 @@ This component is now available on maven central repository.
   <version>1.0.2</version>
 </dependency>
 ```
+
+Follow us on twitter https://twitter.com/SasakUIOfficial for updates.
