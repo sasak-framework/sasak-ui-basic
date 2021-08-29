@@ -17,4 +17,7 @@ This component is now available on maven central repository.
 </dependency>
 ```
 
+# Contact Us
+
+Please visit our website https://sasak-ui.com.
 Follow us on twitter https://twitter.com/SasakUIOfficial for updates.
